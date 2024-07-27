@@ -1,4 +1,7 @@
 import { sendOtp } from "services/auth";
+
+import styles from './SendOtpForm.module.css'
+
 function SendOtpForm( {mobile , setMobile , setStep}) {
 
     const sendHandler = async (event) =>  {
@@ -19,7 +22,7 @@ function SendOtpForm( {mobile , setMobile , setStep}) {
 
   return (
     <div>
-        <form>
+        <form className={styles.form}>
             <p> ورود به حساب کاربری</p>
             <span>.برای استفاده از امکانات دیوار، لطفاً شمارهٔ موبایل خود را وارد کنید. کد تأیید به این شماره پیامک خواهد شد</span>
             <label htmlFor="input">شمارهٔ موبایل خود را وارد کنید</label>
