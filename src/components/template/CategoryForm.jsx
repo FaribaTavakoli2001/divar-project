@@ -8,7 +8,7 @@ function CategoryForm() {
     const {data , mutate , isPending , error } = useMutation({
         mutationFn:addCategory
     })
-    console.log({data ,mutate , isPending , error})
+    // console.log({data ,mutate , isPending , error})
     
     
     const [form , setForm ] = useState({
