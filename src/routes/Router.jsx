@@ -14,7 +14,7 @@ function Router() {
     queryKey: ['profile'],
     queryFn: getProfile
   })
-  console.log({ data, isLoading ,error })
+  // console.log({ data, isLoading ,error })
 
   if(isLoading) return <Loader />
 

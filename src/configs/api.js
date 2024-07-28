@@ -4,7 +4,7 @@ import { getNewTokens } from '../services/token';
 
 
 const api = axios.create ({
-    baseURL: import.meta.env.VITE_APP_BASE_UTL,
+    baseURL: import.meta.env.VITE_APP_BASE_URL,
     headers: {
         'Content-Type': 'application/json'
     }

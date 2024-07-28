@@ -1,8 +1,11 @@
 import React from 'react'
+import CategoryForm from '../components/template/CategoryForm'
 
 function AdminPage() {
   return (
-    <div>AdminPage</div>
+    <div>
+      <CategoryForm />
+    </div>
   )
 }
 
