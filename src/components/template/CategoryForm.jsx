@@ -5,10 +5,10 @@ import { useMutation } from '@tanstack/react-query'
 import styles from './Categoryform.module.css'
 
 function CategoryForm() {
-    const {data , mutate , isLoading , error } = useMutation({
+    const {data , mutate , isPending , error } = useMutation({
         mutationFn:addCategory
     })
-    console.log({data ,mutate , isLoading , error})
+    console.log({data ,mutate , isPending , error})
     
     
     const [form , setForm ] = useState({
@@ -52,7 +52,7 @@ function CategoryForm() {
         id='icon'
         />
         <button type='submit'
-        disabled={isLoading}
+        disabled={isPending}
         >ایجاد</button>
         
     </form>
