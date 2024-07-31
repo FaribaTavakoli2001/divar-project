@@ -1,33 +1,37 @@
-import { useMutation, useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import React from 'react'
 import { deleteCategory, getCategory } from '../../services/admin'
 import Loader from '../module/Loader'
+import styles from './CategoryList.module.css'
+
 function CategoryList() {
+
+    const queryClient = useQueryClient()
+    
     const { data , isPending  } = useQuery({
         queryKey: ['get-category'] , 
         queryFn: getCategory
     })
-    console.log({  isPending , data })
 
     // deleting category (exercise)
-    const {  mutate } = useMutation({
-        mutationFn: deleteCategory
+    const { error ,  mutate } = useMutation({
+        mutationFn: deleteCategory,
+        onSuccess: () => queryClient.invalidateQueries('categories')
     })
+    console.log({error})
 
     const deletHandler = (id) => {
         mutate(id)
-        console.log()
     }
 
   return (
-    <div>
+    <div className={styles.list}>
         {isPending ? <Loader/> : data.data.map(i => 
         <div key={i._id}>
             <img src={`${i.icon}.svg`}/>
             <h5>{i.name}</h5>
             <p>slug : {i.slug}</p>
             <button onClick={() => deletHandler(i._id)}>delete</button>
-
         </div>)}
     </div>
   )

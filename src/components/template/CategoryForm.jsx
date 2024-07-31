@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import { addCategory } from '../../services/admin'
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 import styles from './Categoryform.module.css'
 
 function CategoryForm() {
+  const queryClient = useQueryClient()
     const {data , mutate , isPending , error } = useMutation({
-        mutationFn:addCategory
+        mutationFn:addCategory,
+        onSuccess: () => queryClient.invalidateQueries('get-category')
     })
     // console.log({data ,mutate , isPending , error})
     
@@ -33,7 +35,6 @@ function CategoryForm() {
     onChange={changeHandler} 
     onSubmit={submitHandler}>
         <h3>دسته بندی جدید</h3>
-        {!!error && <p>ثبت آگهی با مشکل مواجه شده است</p>}
         {
             data?.status === 201 && <p> آگهی با موفقیت اضافه شد.</p>
         }
