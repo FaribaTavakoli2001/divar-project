@@ -1,6 +1,7 @@
 import { sendOtp } from "services/auth";
 
 import styles from './SendOtpForm.module.css'
+import { p2e } from "../../utils/replaceNumber";
 
 function SendOtpForm( {mobile , setMobile , setStep}) {
 
@@ -9,7 +10,7 @@ function SendOtpForm( {mobile , setMobile , setStep}) {
 
         if ( mobile.length !== 11 ) return;
 
-        const { response , error } = await sendOtp(mobile);
+        const { response , error } = await sendOtp(p2e(mobile));
         // console.log({response , error})
 
         if (response) setStep(2)

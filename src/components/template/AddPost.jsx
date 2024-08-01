@@ -37,14 +37,14 @@ import toast from 'react-hot-toast'
     const addHandler = (event) => {
         event.preventDefault();
         // console.log(form)
-        // add post to backend with fromdata *** important ***
+        // add post to backend with fromdata *** important 
         const formData = new FormData();
         for (let i in form ) {
             formData.append(i , form[i])
         }
         const token = getCookie('accessToken');
 
-        axios.post(`${import.meta.env.VITE_APP_BASE_URL}post.create`,formData,{
+        axios.post(`${import.meta.env.VITE_APP_BASE_URL}post/create`,formData,{
             headers: {
                 'Content-Type': 'multipart/form-data',
                 Authorization: `bearer ${token}`
@@ -66,10 +66,6 @@ import toast from 'react-hot-toast'
         id='title' />
         <label htmlFor='content'>توضیحات</label>
         <textarea name="content" id="content" />
-        <label htmlFor='amount'>قیمت </label>
-        <input type="text"
-        name='amount'
-        id='amount' />
         <label htmlFor='city'>شهر</label>
         <input type="text"
         name='city'
