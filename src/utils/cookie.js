@@ -14,4 +14,5 @@ const getCookie = (cookieName) => {
     ?.split('=')[1]
 }
 
+
 export { setCookie , getCookie }

@@ -8,6 +8,7 @@ import PageNotFound from 'pages/404'
 import { useQuery } from "@tanstack/react-query";
 import { getProfile } from "../services/user";
 import Loader from "../components/module/Loader";
+import DetailesPage from "../pages/DetailesPage";
 
 function Router() {
   const {data , isLoading , error} = useQuery({
@@ -28,6 +29,7 @@ function Router() {
     ) : (
       <Navigate to='/'/>
     )}/>
+    <Route path="/detailes" element={<DetailesPage />} />
     <Route path="*" element={<PageNotFound />}/>
    </Routes>
   )

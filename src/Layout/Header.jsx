@@ -1,9 +1,20 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-
+import { Link, useNavigate } from 'react-router-dom'
+import { MdLogout } from "react-icons/md";
+import Cookies from 'universal-cookie';
 import styles from './Header.module.css'
 
 function Header() {
+
+  const navigate = useNavigate()
+  const cookie = new Cookies()
+  
+ 
+  const logoutHandler = () => {
+    cookie.remove('accessToken')
+    cookie.remove('refreshToken')
+    navigate('/')
+   }
   return (
     <header className={styles.header}>
         <div>
@@ -23,6 +34,11 @@ function Header() {
             </span>
             </Link>
             <Link to='/dashboard' className={styles.button}>ثبت آگهی</Link>
+            <Link to='/' >
+            <MdLogout 
+            size={30} color='gray'
+            onClick={logoutHandler} />
+            </Link>
         </div>
     </header>
   )

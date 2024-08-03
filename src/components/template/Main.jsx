@@ -1,6 +1,6 @@
 import React from 'react'
 import { sp } from '../../utils/replaceNumber'
-
+import { Link } from 'react-router-dom';
 import styles from './Main.module.css'
 
 function Main({post}) {
@@ -8,19 +8,21 @@ function Main({post}) {
 
     console.log({post})
   return (
-    <div className={styles.container}>
-        {post.data.posts.map(post => (
+      <div className={styles.container}>
+        <Link to='/detailes'>
+        {post.data.posts?.map(post => (
             <div className={styles.card} key={post._id}>
                 <div className={styles.info}>
-                    <p>{post.options.title}</p>
+                    <p>{post.options?.title}</p>
                     <div>
                         <p>{sp(post.amount)} تومان</p>
-                        <span>{post.options.city}</span>
+                        <span>{post.options?.city}</span>
                     </div>
                 </div>
                 <img src={`${BaseUrl}${post.images[0]}`}/>
             </div>
         ))}
+    </Link>
     </div>
   )
 }

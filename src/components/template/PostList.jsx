@@ -21,7 +21,7 @@ function PostList() {
     const removePost = (id) => {
         const token = getCookie('accessToken');
 
-        axios.delete(`${import.meta.env.VITE_APP_BASE_URL}/delete/${id}`, {
+        axios.delete(`${import.meta.env.VITE_APP_BASE_URL}post/delete/${id}`, {
             headers: {
                 Authorization: `bearer ${token}`
             }
@@ -29,12 +29,12 @@ function PostList() {
         .catch(error => console.log(error))
     }
 
-    const { mutate , error } = useMutation({
+    const { mutate , error  } = useMutation({
         mutationFn: removePost,
         onSuccess: () => queryClient.invalidateQueries('posts')
     })
     
-    // console.log({mutate , error})
+    console.log({mutate , error})
 
     const removePostHandler = (id) => {
         mutate(id)
@@ -51,13 +51,13 @@ function PostList() {
                 key={post._id}>
                     <img src={`${BaseUrl}${post.images[0]}`}/>
                      <div>
-                        <p>{post.options.title}</p>
-                        <span>{post.options.content}</span>
+                        <p>{post.options?.title}</p>
+                        <span>{post.options?.content}</span>
                      </div>
                      <div className={styles.price}>
                         <p>{ new Date(post.createdAt).toLocaleDateString('fa-IR')}</p>
                         <span>{sp(post.amount)}تومان</span>
-                        <button onClick={removePostHandler}>remove</button>
+                        <button onClick={() => removePostHandler(post._id)}>remove</button>
                      </div>
                 </div>
             ))
