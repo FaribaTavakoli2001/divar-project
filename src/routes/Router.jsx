@@ -29,7 +29,7 @@ function Router() {
     ) : (
       <Navigate to='/'/>
     )}/>
-    <Route path="/detailes" element={<DetailesPage />} />
+    <Route path="/detailes/:id" element={<DetailesPage />} />
     <Route path="*" element={<PageNotFound />}/>
    </Routes>
   )

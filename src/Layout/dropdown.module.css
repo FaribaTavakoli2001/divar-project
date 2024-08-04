@@ -1,0 +1,30 @@
+.dropdown {
+    
+        position: absolute;
+        top: 60px; /* فاصله از بالا */
+        left: 70px; /* فاصله از راست */
+        background-color: #fff;
+        border: 1px solid #ccc;
+        width: 170px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        z-index: 1;
+        border-radius: 2px;
+        padding: 5px ;
+}
+.dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.dropdown li {
+    /* padding: 10px; */
+    cursor: pointer;
+    text-align: right; /* راست‌چین کردن متن */
+    display: flex;
+    align-items: center;
+
+}
+.dropdown li span {
+    color: gray;
+    margin-right: 4px;
+}

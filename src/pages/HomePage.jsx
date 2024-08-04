@@ -15,7 +15,7 @@ function HomePage() {
     queryKey:['get-category'],
     queryFn:getCategory,
 })
-// console.log({posts})
+// console.log({data , isPending})
 
   return (
     <>

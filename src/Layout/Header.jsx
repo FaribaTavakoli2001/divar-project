@@ -1,20 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { MdLogout } from "react-icons/md";
-import Cookies from 'universal-cookie';
+
 import styles from './Header.module.css'
+import Dropdown from './Dropdown';
+
+
 
 function Header() {
 
-  const navigate = useNavigate()
-  const cookie = new Cookies()
+  const [ isopen , setIsopen ] = useState(false)
+
+  // console.log({data , isPending})
+
+  // const navigate = useNavigate()
+
+  const isOpenHandler = () => {
+    setIsopen( prev => !prev)
+  } 
   
- 
-  const logoutHandler = () => {
-    cookie.remove('accessToken')
-    cookie.remove('refreshToken')
-    navigate('/')
-   }
   return (
     <header className={styles.header}>
         <div>
@@ -28,17 +31,17 @@ function Header() {
         </div>
         <div>
             <Link to='/auth'>
-            <span>
+            <span 
+            className={styles.toggleButton}
+            onClick={isOpenHandler}>
             <img src='profile.svg'/>
             <p>دیوار من</p>
             </span>
             </Link>
+           {
+            isopen && <Dropdown />
+           }
             <Link to='/dashboard' className={styles.button}>ثبت آگهی</Link>
-            <Link to='/' >
-            <MdLogout 
-            size={30} color='gray'
-            onClick={logoutHandler} />
-            </Link>
         </div>
     </header>
   )

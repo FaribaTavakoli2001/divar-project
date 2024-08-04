@@ -9,4 +9,7 @@ const getPosts = () => api.get('post/my')
 
 const getAllPosts = () => api.get('')
 
-export { getProfile , getPosts  , getAllPosts }
+// const getDetailesPost = (id) => api.get(`post/${id}`)
+
+
+export { getProfile  , getPosts  , getAllPosts }

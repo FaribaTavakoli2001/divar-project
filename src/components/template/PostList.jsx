@@ -16,7 +16,7 @@ function PostList() {
         queryKey:['get-post-list'],
         queryFn: getPosts
     })
-    console.log({data , isPending})
+    // console.log({data , isPending})
 
     const removePost = (id) => {
         const token = getCookie('accessToken');
@@ -45,7 +45,7 @@ function PostList() {
         <>
         <h3> آگهی های شما</h3>
         {
-            data.data.posts.map((post) => (
+            data.data?.posts.map((post) => (
                 <div
                 className={styles.post}
                 key={post._id}>

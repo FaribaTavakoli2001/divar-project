@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid rgb(234, 234, 234);
-    padding: 10px 0;
+    padding: 4px 0;
     margin-bottom: 20px;
 }
 
@@ -21,6 +21,7 @@
     align-items: center;
     color: gray;
     height: 50px;
+    cursor: pointer;
 }
 
 .header span p {
@@ -38,4 +39,19 @@
     border-radius: 5px;
     margin-right: 40px;
     margin-left: 15px;
+}
+
+.toggleButton {
+    /* background-color: white; */
+    /* border: 1px solid #ccc; */
+    /* padding: 10px; */
+    cursor: pointer;
+    /* display: inline-block; */
+    /* margin: 20px; */
+    /* border-radius: 4px; */
+    /* font-size: 16px; */
+    /* text-align: center; */
+    /* width: 200px; */
+    position: relative;
+    /* text-align: right; راست‌چین کردن متن */
 }

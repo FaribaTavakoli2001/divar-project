@@ -3,15 +3,19 @@ import { sp } from '../../utils/replaceNumber'
 import { Link } from 'react-router-dom';
 import styles from './Main.module.css'
 
+
 function Main({post}) {
     const BaseUrl = import.meta.env.VITE_APP_BASE_URL;
 
-    console.log({post})
+      
+
+    // console.log({post})
   return (
       <div className={styles.container}>
-        <Link to='/detailes'>
-        {post.data.posts?.map(post => (
-            <div className={styles.card} key={post._id}>
+        {post.data.posts.map(post => (
+            <div
+            className={styles.card} key={post._id}>
+                <Link to={`/detailes/${post._id}`}>
                 <div className={styles.info}>
                     <p>{post.options?.title}</p>
                     <div>
@@ -20,9 +24,9 @@ function Main({post}) {
                     </div>
                 </div>
                 <img src={`${BaseUrl}${post.images[0]}`}/>
+    </Link>
             </div>
         ))}
-    </Link>
     </div>
   )
 }
