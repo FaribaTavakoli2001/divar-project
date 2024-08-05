@@ -4,7 +4,6 @@ import styles from './SideBar.module.css'
 
 function SideBar({categories}) {
    
-    // console.log({data , isPending})
     
   return (
     <div className={styles.sidebar}>

@@ -7,6 +7,7 @@ import { getProfile } from '../services/user';
 import { Link } from 'react-router-dom';
 
 import styles from './dropdown.module.css'
+import toast from 'react-hot-toast';
 function Dropdown() {
 
   const { refetch , data , isPending } = useQuery({
@@ -19,25 +20,22 @@ function Dropdown() {
     cookie.remove('accessToken')
     cookie.remove('refreshToken')
     refetch()
+  if(!data) toast.success('خارج شدید')
     // navigate('/')
    }
-   if(!data) {
-    console.log('logout')
-   } else{
-    console.log('user still login')
-   }
+  
 
   return (
     <div className={styles.dropdown}>
         <ul>
+            <li onClick={logoutHandler}> 
             <Link to='/auth' >
-            <li> 
             <MdLogout 
             size={25} color='gray'
-            onClick={logoutHandler} />
+             />
+            </Link>
             <span>خروج</span>
             </li>
-            </Link>
         </ul>
     </div>
   )

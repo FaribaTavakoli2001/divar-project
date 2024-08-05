@@ -22,9 +22,7 @@
     text-align: right; /* راست‌چین کردن متن */
     display: flex;
     align-items: center;
-
-}
-.dropdown li span {
+    /* border-bottom: 1px solid gray; */
     color: gray;
     margin-right: 4px;
 }

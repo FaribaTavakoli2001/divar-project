@@ -5,7 +5,7 @@ import Loader from '../components/module/Loader'
 import { useQuery } from '@tanstack/react-query'
 import { getAllPosts } from '../services/user'
 import { getCategory } from '../services/admin'
-
+ 
 function HomePage() {
   const { data: posts , isPending: postPending } = useQuery({
     queryKey:['post-list'],
