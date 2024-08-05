@@ -7,8 +7,6 @@ import styles from './Main.module.css'
 function Main({post}) {
     const BaseUrl = import.meta.env.VITE_APP_BASE_URL;
 
-      
-    
     // console.log({post})
   return (
       <div className={styles.container}>

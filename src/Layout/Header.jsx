@@ -30,14 +30,12 @@ function Header() {
         </span>
         </div>
         <div>
-            <Link to='/auth'>
             <span 
             className={styles.toggleButton}
             onClick={isOpenHandler}>
             <img src='profile.svg'/>
             <p>دیوار من</p>
             </span>
-            </Link>
            {
             isopen && <Dropdown />
            }

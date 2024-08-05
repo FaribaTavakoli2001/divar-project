@@ -7,12 +7,14 @@ function DetailesPage() {
     const { id } = useParams()
     // console.log(id)
   
-    const { data , isPending , refetch } = useQuery({
+    const { data , refetch } = useQuery({
         queryKey: ['get-details-post' ],
         queryFn:getDetailesPost ,
         enabled: !id
       })
-      console.log(data)
+
+      const filteredData = data?.filter(item => item.id);
+      console.log(filteredData)
  
 
   return (
