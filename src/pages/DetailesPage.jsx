@@ -27,7 +27,7 @@ function DetailesPage() {
     <>
     {
       data && (
-        <div className={styles.container}>
+      <div className={styles.container}>
         <div className={styles.info}>
           <h5 className={styles.title}>{post.options?.title}</h5>
           <p className={styles.date}>{new Date(post.createdAt).toLocaleDateString('fa-IR')}</p>

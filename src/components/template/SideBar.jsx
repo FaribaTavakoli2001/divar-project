@@ -3,6 +3,8 @@ import React from 'react'
 import styles from './SideBar.module.css'
 
 function SideBar({categories}) {
+
+  console.log({categories})
    
     
   return (

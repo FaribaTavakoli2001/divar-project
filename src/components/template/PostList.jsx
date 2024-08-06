@@ -45,7 +45,7 @@ function PostList() {
         <>
         <h3> آگهی های شما</h3>
         {
-            data.data?.posts.map((post) => (
+            data?.data.posts.map((post) => (
                 <div
                 className={styles.post}
                 key={post._id}>
