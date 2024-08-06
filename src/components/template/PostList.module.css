@@ -4,6 +4,9 @@
     width: fit-content;
     padding-bottom: 5px;
 }
+.list h2 {
+    margin-right: 10px;
+}
 
 .post {
     display: flex;
@@ -37,4 +40,13 @@
 .post .price {
     width: 150px;
     text-align: center;
+}
+.price button {
+    background-color: #a62626;
+    color: #fff;
+    border: none;
+    padding: 5px 5px;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    cursor: pointer;
 }

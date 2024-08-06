@@ -14,6 +14,7 @@ function Dropdown() {
     queryKey:['profile'],
     queryFn:getProfile,
   })
+  console.log(data.data.role)
 
   const cookie = new Cookies()
   const logoutHandler = () => {
@@ -28,14 +29,30 @@ function Dropdown() {
   return (
     <div className={styles.dropdown}>
         <ul>
-            <li onClick={logoutHandler}> 
-            <Link to='/auth' >
-            <MdLogout 
-            size={25} color='gray'
-             />
-            </Link>
-            <span>خروج</span>
-            </li>
+           {
+            data && (
+              <li onClick={logoutHandler}> 
+              <Link to='/auth' >
+              <MdLogout 
+              size={20} color='gray'
+               />
+              </Link>
+              <span>خروج</span>
+              </li>
+            )
+           }
+            {
+              data.data.role == 'ADMIN' ? (
+                <Link to='/admin'>
+                <li>پنل ادمین</li>
+                </Link>
+              ) : (
+                <Link to='/dashboard/my'>
+                  <span>آگهی های من</span>
+                </Link>
+              )
+            }
+            
         </ul>
     </div>
   )

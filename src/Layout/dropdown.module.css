@@ -1,5 +1,4 @@
 .dropdown {
-    
         position: absolute;
         top: 60px; /* فاصله از بالا */
         left: 70px; /* فاصله از راست */
@@ -22,7 +21,12 @@
     text-align: right; /* راست‌چین کردن متن */
     display: flex;
     align-items: center;
+    justify-content: center;
     /* border-bottom: 1px solid gray; */
     color: gray;
     margin-right: 4px;
+}
+.dropdown li span {
+    font-size: 15px;
+
 }
