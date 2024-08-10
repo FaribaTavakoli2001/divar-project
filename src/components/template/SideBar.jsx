@@ -3,11 +3,8 @@ import React from 'react'
 import styles from './SideBar.module.css'
 
 function SideBar({categories , oncategoryClick}) {
-
   // console.log({categories})
-
-   
-    
+ 
   return (
     <div className={styles.sidebar}>
         <h4> دسته ها</h4>

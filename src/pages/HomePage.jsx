@@ -8,13 +8,18 @@ import { getCategory } from '../services/admin'
  
 function HomePage() {
 
-  const [selectedCategory , setSelectedCategory ] = useState(null)
+  const [selectedCategory , setSelectedCategory ] = useState()
 
   const { data: posts , isPending: postPending } = useQuery({
     queryKey:['post-list' , selectedCategory],
     queryFn: () => 
       selectedCategory ? getPostsByCategory(selectedCategory) : getAllPosts(),
   })
+  const categoryHandler = (categoryId) => {
+    console.log('Selected category ID:', categoryId);
+    setSelectedCategory(categoryId)
+  }
+  console.log(posts)
   
 
   const { data: categories , isPending: categoryPending  } = useQuery({
@@ -22,11 +27,6 @@ function HomePage() {
     queryFn:getCategory,
 })
 
-const categoryHandler = (categoryId) => {
-  console.log('Selected category ID:', categoryId);
-  setSelectedCategory(categoryId)
-}
-console.log(posts)
 
   return (
     <>

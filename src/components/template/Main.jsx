@@ -11,7 +11,7 @@ function Main({post}) {
     
   return (
       <div className={styles.container}>
-        {post?.data?.posts?.map(post => (
+        {post.data.posts?.map(post => (
             <div
             className={styles.card} key={post._id}>
                 <Link to={`/detailes/${post._id}`}>
