@@ -8,7 +8,7 @@ import { getCategory } from '../services/admin'
  
 function HomePage() {
 
-  const [selectedCategory , setSelectedCategory ] = useState()
+  const [selectedCategory , setSelectedCategory ] = useState(null)
 
   const { data: posts , isPending: postPending } = useQuery({
     queryKey:['post-list' , selectedCategory],
