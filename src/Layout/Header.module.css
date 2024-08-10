@@ -42,16 +42,6 @@
 }
 
 .toggleButton {
-    /* background-color: white; */
-    /* border: 1px solid #ccc; */
-    /* padding: 10px; */
     cursor: pointer;
-    /* display: inline-block; */
-    /* margin: 20px; */
-    /* border-radius: 4px; */
-    /* font-size: 16px; */
-    /* text-align: center; */
-    /* width: 200px; */
     position: relative;
-    /* text-align: right; راست‌چین کردن متن */
 }

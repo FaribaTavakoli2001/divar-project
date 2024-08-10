@@ -14,9 +14,10 @@ function Dropdown() {
     queryKey:['profile'],
     queryFn:getProfile,
   })
-  console.log(data.data.role)
+  console.log(data)
 
   const cookie = new Cookies()
+
   const logoutHandler = () => {
     cookie.remove('accessToken')
     cookie.remove('refreshToken')
@@ -24,35 +25,43 @@ function Dropdown() {
   if(!data) toast.success('خارج شدید')
     // navigate('/')
    }
-  
+
+
 
   return (
     <div className={styles.dropdown}>
         <ul>
-           {
-            data && (
-              <li onClick={logoutHandler}> 
-              <Link to='/auth' >
-              <MdLogout 
-              size={20} color='gray'
-               />
-              </Link>
-              <span>خروج</span>
-              </li>
-            )
-           }
             {
-              data.data.role == 'ADMIN' ? (
-                <Link to='/admin'>
-                <li>پنل ادمین</li>
-                </Link>
+              data ? (
+                <Link to='/auth' >
+                <li onClick={logoutHandler}> 
+            <MdLogout 
+            size={25} color='gray'
+             />
+            <span>خروج</span>
+            </li>
+            </Link>
               ) : (
-                <Link to='/dashboard/my'>
-                  <span>آگهی های من</span>
+                <Link to='/auth'>
+                <li>
+                  <span>ورود</span>
+                </li>
                 </Link>
               )
             }
-            
+            {
+              data.data?.role == 'ADMIN' && (
+               <Link to='/admin'>
+                 <li>پنل ادمین</li>
+               </Link>
+              )
+            }
+            {
+              data.data?.role == 'USER' && (
+                <Link to='/dashboard/my'>
+                <li>آگهی های من</li></Link>
+              )
+            }
         </ul>
     </div>
   )

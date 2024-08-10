@@ -2,9 +2,10 @@ import React from 'react'
 
 import styles from './SideBar.module.css'
 
-function SideBar({categories}) {
+function SideBar({categories , oncategoryClick}) {
 
-  console.log({categories})
+  // console.log({categories})
+
    
     
   return (
@@ -12,7 +13,12 @@ function SideBar({categories}) {
         <h4> دسته ها</h4>
         <ul>
             {categories?.data.map (category => (
-                <li key={category._id}>
+                <li key={category._id}
+                onClick={() => {
+                  console.log('Category clicked:', category._id); // لاگ برای بررسی کلیک
+                  oncategoryClick(category._id)
+                }}
+                className={styles.categoryItem}>
                     <img src={`${category.icon}.svg`} />
                     <p>{category.name}</p>
                 </li>

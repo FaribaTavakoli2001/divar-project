@@ -1,10 +1,12 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import React from 'react'
 import { deleteCategory, getCategory } from '../../services/admin'
+import React from 'react'
 import Loader from '../module/Loader'
 import styles from './CategoryList.module.css'
+import { useParams } from 'react-router-dom'
 
 function CategoryList() {
+    const { categoryId } = useParams()
 
     const queryClient = useQueryClient()
     

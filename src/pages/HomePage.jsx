@@ -1,21 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SideBar from '../components/template/SideBar'
 import Main from '../components/template/Main'
 import Loader from '../components/module/Loader'
 import { useQuery } from '@tanstack/react-query'
-import { getAllPosts } from '../services/user'
+import { getAllPosts , getPostsByCategory } from '../services/user'
 import { getCategory } from '../services/admin'
  
 function HomePage() {
+
+  const [selectedCategory , setSelectedCategory ] = useState(null)
+
   const { data: posts , isPending: postPending } = useQuery({
-    queryKey:['post-list'],
-    queryFn: getAllPosts,
+    queryKey:['post-list' , selectedCategory],
+    queryFn: () => 
+      selectedCategory ? getPostsByCategory(selectedCategory) : getAllPosts(),
   })
+  
+
   const { data: categories , isPending: categoryPending  } = useQuery({
     queryKey:['get-category'],
     queryFn:getCategory,
 })
-// console.log({data , isPending})
+
+const categoryHandler = (categoryId) => {
+  console.log('Selected category ID:', categoryId);
+  setSelectedCategory(categoryId)
+}
+console.log(posts)
 
   return (
     <>
@@ -23,7 +34,7 @@ function HomePage() {
     (<div style={{
       display:'flex'
     }}>
-      <SideBar categories={categories} />
+      <SideBar categories={categories} oncategoryClick={categoryHandler} />
       <Main post={posts} />
     </div>)
     }

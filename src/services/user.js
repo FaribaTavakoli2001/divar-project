@@ -11,5 +11,8 @@ const getAllPosts = () => api.get('')
 
 const getDetailesPost = (id) => api.get(`post/${id}`)
 
+const getPostsByCategory = (categoryId) => api.get(`option/by-category/${categoryId}`)
 
-export { getProfile , getDetailesPost  , getPosts  , getAllPosts }
+// const getSlug = (slug) => api.get(`option/by-category-slug/${slug}`)
+
+export { getPostsByCategory , getProfile , getDetailesPost  , getPosts  , getAllPosts  }

@@ -63,7 +63,7 @@ function PostList() {
             ))
         }
         {
-            !!data && (
+            data && (
                 <h2>آگهی وجود ندارد</h2>
             ) 
         }

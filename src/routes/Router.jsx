@@ -10,6 +10,7 @@ import { getProfile } from "../services/user";
 import Loader from "../components/module/Loader";
 import DetailesPage from "../pages/DetailesPage";
 import PostList from '../components/template/PostList'
+
 function Router() {
   const {data , isLoading , error} = useQuery({
     queryKey: ['profile'],
