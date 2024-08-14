@@ -10,6 +10,7 @@ import { getProfile } from "../services/user";
 import Loader from "../components/module/Loader";
 import DetailesPage from "../pages/DetailesPage";
 import PostList from '../components/template/PostList'
+import Location from "../components/template/Location";
 
 function Router() {
   const {data , isLoading , error} = useQuery({
@@ -32,6 +33,7 @@ function Router() {
     )}/>
     <Route path="/detailes/:id" element={<DetailesPage />} />
     <Route path="*" element={<PageNotFound />}/>
+    <Route path="/location" element={<Location />}/>
     <Route path="/dashboard/my" element={<PostList />}/>
    </Routes>
   )

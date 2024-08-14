@@ -1,3 +1,5 @@
+/* @import 'leaflet/dist/leaflet.css'; */
+
 :root {
   font-family: "Vazir", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 300;
@@ -15,6 +17,7 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+
 }
 
 a {
@@ -26,4 +29,10 @@ button,
 input,
 select {
   font-family: inherit;
+}
+
+#map {
+  width: 500px;
+  height: 500px;
+  margin: 10px auto;
 }

@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 import { getDetailesPost } from '../services/user'
 import Loader from '../components/module/Loader'
 import styles from './Detailes.module.css'
+import Location from '../components/template/Location'
 function DetailesPage() {
   const BaseUrl = import.meta.env.VITE_APP_BASE_URL;
   const { id  } = useParams()
@@ -25,7 +26,6 @@ function DetailesPage() {
     <>
     {
       data && (
-        <>
       <div className={styles.container}>
         <div className={styles.info}>
          <div className={styles.title}> <h5>{post.options?.title}</h5></div>
@@ -35,10 +35,8 @@ function DetailesPage() {
         </div>
         <img className={styles.image} src={`${BaseUrl}${post.images[0]}`}  />
       </div>
-      </>
       )
     }
-      
     </>
   )
 }

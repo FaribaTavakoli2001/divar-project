@@ -7,6 +7,14 @@
 .sidebar li  {
     display: flex;
     margin: 20px 0;
+    cursor: pointer;
+}
+.sidebar li:hover {
+    color: red;
+}
+
+.categoryItemselected {
+    color: red;
 }
 
 

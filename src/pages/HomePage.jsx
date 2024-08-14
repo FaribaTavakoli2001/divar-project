@@ -15,12 +15,12 @@ function HomePage() {
     queryFn: () => 
       selectedCategory ? getPostsByCategory(selectedCategory) : getAllPosts(),
   })
+  
   const categoryHandler = (categoryId) => {
     console.log('Selected category ID:', categoryId);
     setSelectedCategory(categoryId)
   }
-  console.log(posts)
-  
+  // console.log(posts)
 
   const { data: categories , isPending: categoryPending  } = useQuery({
     queryKey:['get-category'],
@@ -34,7 +34,7 @@ function HomePage() {
     (<div style={{
       display:'flex'
     }}>
-      <SideBar categories={categories} oncategoryClick={categoryHandler} />
+      <SideBar categories={categories} selectedCategory={selectedCategory} oncategoryClick={categoryHandler} />
       <Main post={posts} />
     </div>)
     }

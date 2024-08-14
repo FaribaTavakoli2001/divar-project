@@ -11,10 +11,11 @@ function Main({post}) {
     
   return (
       <div className={styles.container}>
-        {post.data.posts?.map(post => (
+        {post?.data?.posts?.map(post => (
+            <Link to={`/detailes/${post._id}`}
+            key={post._id}>
             <div
-            className={styles.card} key={post._id}>
-                <Link to={`/detailes/${post._id}`}>
+            className={styles.card} >
                 <div className={styles.info}>
                     <p>{post.options?.title}</p>
                     <div>
@@ -23,8 +24,8 @@ function Main({post}) {
                     </div>
                 </div>
                 <img src={`${BaseUrl}${post.images[0]}`}/>
-    </Link>
             </div>
+    </Link>
         ))}
     </div>
   )

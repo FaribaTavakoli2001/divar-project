@@ -24,10 +24,12 @@ function Header() {
         <Link to='/'>
         <img src='divar.svg' className={styles.logo}/>
         </Link>
+        <Link to='/location'>
         <span>
             <img src='location.svg'/>
             <p>تهران</p>
         </span>
+        </Link>
         </div>
         <div>
             <span 
