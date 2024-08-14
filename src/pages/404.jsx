@@ -2,8 +2,15 @@ import React from 'react'
 
 function PageNotFound() {
   return (
-    <div>
-      <h2>404</h2>
+    <div style={
+      {
+        display: 'flex',
+        alignItems:'center',
+        justifyContent:'center'
+      }
+    }>
+     <img src='images.png'/>
+
     </div>
   )
 }
